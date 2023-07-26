@@ -1,0 +1,8 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+data|stem|108479034e4ce138|4525b922227c51ac|507ea70b8bd992b0|1588979285||t19564.6621201336s|b1b6f45197db05f1|1971|rds|local|vector|||0.03||
+file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
+fit_brms_model|function|a12a26483033ca51|||||||||||||||
+get_data|function|5ee502beeb0912df|||||||||||||||
+individual_data_plot|stem|d34824b82ef737f3|7e751a7158f305f2|0e027edb7af5fffa|2061594810||t19564.6621444041s|c852eab37a726e04|78|rds|local|vector|||2.07||
+model_brms|stem|4ac8ef3452ba6e3f|e817a320354bc47d|affd7cc5ef131ff9|274656695||t19564.6630619362s|f4586a3bf4584caf|54804823|rds|local|vector|||76.95|There were 4 divergent transitions after warmup. Seehttpsmcstan.orgmiscwarnings.htmldivergenttransitionsafterwarmupto find out why this is a problem and how to eliminate them.. Examine the pairs plot to diagnose sampling problems|
+plot_individual_data|function|21ba23fff9708b2b|||||||||||||||
