@@ -1,7 +1,7 @@
 # _targets.R file
 library(targets)
 source("R/functions.R")
-tar_option_set(packages = c("tidyverse", "rstan", "brms", "base"))
+tar_option_set(packages = c("tidyverse", "rstan", "brms", "base", "tidybayes"))
 
 list(
   # Load in data
@@ -21,8 +21,9 @@ list(
 #   tar_target(classif_rsa_predicted_values, get_classif_rsa_predicted_values(classif_rsa_models)),
 #   
   # Make plots
-  tar_target(individual_data_plot, plot_individual_data(data))
-#   tar_target(classif_rsa_plot, make_classif_rsa_plot(rsa_data, classif_rsa_predicted_values))
+  tar_target(individual_data_plot, plot_individual_data(data)),
+  tar_target(trace_plots, make_trace_plots(model_brms)),
+  tar_target(model_data_plot, plot_model_data(model_brms, data))
 #   
 )
 

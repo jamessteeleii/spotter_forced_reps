@@ -17,6 +17,7 @@ plot_individual_data <- function(data) {
     geom_line() +
     geom_text(aes(label=forced_rep_no, y = perception_assistance+10), size = 2.5, show.legend = FALSE) +
     facet_wrap(~id, ncol = 9) +
+    scale_color_brewer(palette = "Dark2") +
     scale_x_continuous(breaks = c(0,25,50,75,100)) +
     scale_y_continuous(breaks = c(0,25,50,75,100)) +
     labs(x = "Actual Assistance Provided (%)",
@@ -29,7 +30,7 @@ plot_individual_data <- function(data) {
   
   individual_data_plot
   
-  ggsave("plots/disability_rsa.tiff", width = 7.5, height = 7.5, device = "tiff", dpi = 300)
+  ggsave("plots/individual_data_plot.tiff", width = 10, height = 10, device = "tiff", dpi = 300)
   
 }
 
@@ -47,5 +48,42 @@ fit_brms_model <- function(data) {
                     iter = 3000, warmup = 1000,
                     cores = 4,
                     control = list(adapt_delta = 0.95), init = 0)
+  
+}
+
+make_trace_plots <- function(model_brms) {
+  plot(model_brms)
+}
+
+
+plot_model_data <- function(model_brms, data) {
+  posterior_epred_draws <- crossing(actual_assistance_percentage = seq(from = 0, to = max(data$actual_assistance_percentage), length = max(data$actual_assistance_percentage)),
+                                    id = unique(data$id),
+                                    role = unique(data$role),
+                                    forced_rep_no = unique(data$forced_rep_no)) %>%
+    add_epred_draws(model_brms, re_formula = NULL) 
+  
+  model_data_plot <- posterior_epred_draws %>%
+    mutate(rep_label = "Forced Repetition Number") %>%
+    ggplot(aes(x = actual_assistance_percentage, y = .epred, color=role, fill=role)) +
+    geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+    stat_lineribbon(aes(y = .epred), .width = .95, alpha = 0.25, show.legend=TRUE) +
+    scale_fill_brewer(palette = "Set2") +
+    scale_color_brewer(palette = "Dark2") +
+    scale_x_continuous(breaks = c(0,25,50,75,100)) +
+    scale_y_continuous(breaks = c(0,25,50,75,100)) +
+    facet_grid(.~rep_label + forced_rep_no) +
+    labs(
+      title = "Expectationof the Posterior Predictive Distribution",
+      subtitle = "Mean and 95% credible interval (CI)",
+      x = "Actual Assistance Provided (%)",
+      y = "Perception of Assistance Provided (%)",
+      color = "Role", fill = "Role") +
+    theme_bw() + 
+    theme(panel.grid=element_blank())
+  
+  model_data_plot
+  
+  ggsave("plots/model_data_plot.tiff", width = 10, height = 7.5, device = "tiff", dpi = 300)
   
 }

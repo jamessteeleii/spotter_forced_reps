@@ -3,6 +3,10 @@ data|stem|108479034e4ce138|4525b922227c51ac|507ea70b8bd992b0|1588979285||t19564.
 file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
 fit_brms_model|function|a12a26483033ca51|||||||||||||||
 get_data|function|5ee502beeb0912df|||||||||||||||
-individual_data_plot|stem|d34824b82ef737f3|7e751a7158f305f2|0e027edb7af5fffa|2061594810||t19564.6621444041s|c852eab37a726e04|78|rds|local|vector|||2.07||
+individual_data_plot|stem|5f7a4b5bde86715d|7e751a7158f305f2|192cc1a21fe54bf9|2061594810||t19564.704323837s|0b52c5847220add9|82|rds|local|vector|||1.97||
+make_trace_plots|function|9684a08a490d3abf|||||||||||||||
 model_brms|stem|4ac8ef3452ba6e3f|e817a320354bc47d|affd7cc5ef131ff9|274656695||t19564.6630619362s|f4586a3bf4584caf|54804823|rds|local|vector|||76.95|There were 4 divergent transitions after warmup. Seehttpsmcstan.orgmiscwarnings.htmldivergenttransitionsafterwarmupto find out why this is a problem and how to eliminate them.. Examine the pairs plot to diagnose sampling problems|
-plot_individual_data|function|21ba23fff9708b2b|||||||||||||||
+model_data_plot|stem|b8d402181bdbe1e2|1630eef2c41596a4|3e9f781061b4e0b3|-682089797||t19564.7088287292s|dff9495c51b724c1|77|rds|local|vector|||377.47||
+plot_individual_data|function|ba299a599a6c5f70|||||||||||||||
+plot_model_data|function|743f27c5d05f0377|||||||||||||||
+trace_plots|stem|6b91a09a4544fdfc|377c42f8eb90f0ce|8fd66c77ee50e509|242221385||t19564.7044595137s|84640fe94d81a388|20661503|rds|local|vector|||9.58||
