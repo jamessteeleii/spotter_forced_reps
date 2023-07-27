@@ -1,29 +1,25 @@
 ---
 title: "Statistical Analysis and Results"
-format: docx
-editor: visual
+format: 
+  docx:
+    toc: false
+    number-sections: true
+    highlight-style: github
 bibliography: references.bib
+csl: apa.csl
 ---
 
 ## Statistical Analysis
 
 The present analysis was not pre-registered and thus was considered exploratory. Inferential statistics were treated as highly unstable local descriptions of the relations between model assumptions and data in order to acknowledge the inherent uncertainty in drawing generalised inferences from single and small samples [@amrhein_inferential_2019]. For all analyses we opted to avoid dichotomising the existence of effects and therefore did not employ traditional null hypothesis significance testing on parameter estimates [@amrhein_scientists_2019; @mcshane_abandon_2019]. Instead, we opted to take an estimation-based approach instead [@cumming_new_2014], based within a Bayesian framework [@kruschke_bayesian_2018]. For all analyses model estimates and their precision, along with conclusions based upon them, were interpreted continuously and probabilistically, considering data quality, plausibility of effect, and previous literature, all within the context of each model. We focused primarily on qualitative examination of our results based on visualization of the data and models for fixed effects, and exploration of variances using random effects.
 
-All analysis examples were performed in R (version 4.2.1, "Funny-Looking Kid", The R Foundation for Statistical Computing, 2022) and all data and code utilized is presented in the supplementary materials (https://osf.io/32758/). The dependent variable in our model was the perception of assistance provided which we transformed to the \$(0,1)\$ interval. As such we utilise beta regression for our model fit using the **brms** package \[\@kubinec_ordered_2022\]. Given the novel study design and subject matter we did not have a clear intuition or informed opinion about what prior to set and so opted to use the default priors for most models\[\^6\] and "let the data speak". Four Monte Carlo Markov Chains with 1000 warmup and 3000 sampling iterations were used in each model. The models all had \$\\hat{R}\$ values \$\\leq{1.01}\$, trace plots demonstrated chain convergence, and posterior predictive checks appeared appropriate. Model results were visualised by taking draws from the expected posterior distribution (n=4000) and taking the mean of these draws along with calculating every level of quantile (credible) interval. All data visualisations were made using \*\*ggplot2\*\* \[\@wickham_ggplot2_2022\] and \*\*patchwork\*\* \[\@pedersen_patchwork_2022\] and credible intervals (CI) were visualised at all levels as a gradient using the \*\*tidybayes\*\* package \[\@kay_tidybayes_2022\]. For visualisation of model estimates for specific operationalisations we rescaled each \$(0,1)\$ interval back to the \$(0,100)\$ percentage scale to aid interpretation.
+All analysis examples were performed in R (version 4.2.3, The R Foundation for Statistical Computing, 2023) and all data and code utilized is presented in the supplementary materials (https://osf.io/32758/). The dependent variable in our model was the perception of assistance provided which we transformed to the $(0,1)$ interval. As such we utilised beta regression for our model fit using the **brms** package [@burkner_brms_2017]. Fixed effects for the actual assistance provided by the spotter (as a percentage of the load lifted by the trainee), the role of the participant at for this observation (either the trainee or the spotter), the forced repetition number (either the first or the second repetition), and each of their two way interactions (i.e., actual assistance:role, actual assistance:force repetition, role:forced repetition) were included. We also a maximal random effect structure including random intercepts for participant and all of the aforementioned effects including interactions as random slopes. Given the novel study design and subject matter we did not have a clear intuition or informed opinion about what prior to set and so opted to use the default weakly regularising priors and "let the data speak". Four Monte Carlo Markov Chains with 4000 warmup and 4000 sampling iterations were used in each model. The models all had $\hat{R}$ values $\leq{1.01}$, trace plots demonstrated chain convergence (see ????), and the posterior predictive checks appeared appropriate (see ????). Model results were visualised by taking draws from the expected posterior distribution (n=4000) and taking the mean of these draws along with the 95% quantile (credible) interval for the fixed effects paramaters, thus providing the overall grand mean effects. All data visualisations were made using **ggplot2** [@wickham_ggplot2_2022] and the **tidybayes** package [@kay_tidybayes_2022]. For interpretation of model estimates and visualisation we rescaled the expected posterior distribution of the $(0,1)$ interval back to the $(0,100)$ percentage scale, and also converted the beta regression coefficients using the inverse logistic function to aid interpretation.
 
-## Running Code
+## Results
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+```{r ind-data-plot, message=FALSE, warning=FALSE, echo=FALSE, out.width = "100%", out.height = "100%", fig.cap="Individual data plot."}
 
-```{r}
-1 + 1
+knitr::include_graphics(here::here("plots/individual_data_plot.tiff"))
+
 ```
 
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
