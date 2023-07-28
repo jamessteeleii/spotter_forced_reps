@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|35f2e2900bcdfcd4|||||||||||||||
+.Random.seed|object|80f3401a4e6efd0e|||||||||||||||
 data|stem|2be5d7a1bbaa0183|4525b922227c51ac|dd5bc9ec774d9bfd|1588979285||t19565.6663658125s|0e1b3a7b347541fa|2128|rds|local|vector|||0.01||
 file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
 fit_brms_model|function|489cf82a809d209c|||||||||||||||
@@ -15,8 +15,9 @@ model_data_plot_tiff|stem|42b58c3a1aa8e452|b70bd4fbad07ecf9|473f3b8867a3a9b8|-15
 plot_individual_data|function|9ae2ce7ae03a1700|||||||||||||||
 plot_model_data|function|a1f87a0d3931cf7e|||||||||||||||
 pp_check_plot|stem|55a50d647fcdada6|008d706a3b76810d|584dcb4a71925917|-2145689577||t19565.6842608s|b5cce724f5da67e5|106982|rds|local|vector|||0.84||
-report|stem|e5231d29bc5aa06e|ae5200ea586fc152|d84d7cdd1c3c4b08|-237041703|report.docx*report.qmd|t19565.7677671553s|c0e0ae430451b69c|583682|file|local|vector|||7.63|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
+report|stem|2066c4369e5f72d0|ae5200ea586fc152|d84d7cdd1c3c4b08|-237041703|report.docx*report.qmd|t19566.2786375385s|b22c2f4d3d6d7424|895408|file|local|vector|||8.09|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
 save_individual_data_plot_as_tiff|function|19ab9b166e639a76|||||||||||||||
 save_model_data_plot_as_tiff|function|ec769786a1a731b9|||||||||||||||
 tidy_model_brms|stem|3c2ac2cdb41488d2|b1ee69e055021253|067615355889e94c|-806276733||t19565.6842505363s|95ba3e157e0191d3|1941|rds|local|vector|||0.14|some parameter names contain underscores term naming may be unreliable|
 trace_plots|stem|86213b7bb2e226fd|377c42f8eb90f0ce|f26d8af5b388c09f|242221385||t19565.6842481706s|3224008ef864fc49|51922362|rds|local|vector|||15.03||
+trace_pp_check_report|stem|2b01e1a6aba1fae7|9a13494e81d8d149|01ba0de0b633ed8f|2013909731|trace_pp_check_report.pdf*trace_pp_check_report.qmd|t19566.2863929558s|6118f9639b9dcc9d|1497006|file|local|vector|||19.05||

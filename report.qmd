@@ -23,3 +23,9 @@ knitr::include_graphics(here::here("plots/individual_data_plot.tiff"))
 
 ```
 
+
+```{r model-data-plot, message=FALSE, warning=FALSE, echo=FALSE, out.width = "100%", out.height = "100%", fig.cap="Individual data plot."}
+
+knitr::include_graphics(here::here("plots/model_data_plot.tiff"))
+
+```

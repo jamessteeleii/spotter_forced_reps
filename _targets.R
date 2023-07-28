@@ -23,6 +23,9 @@ list(
   tar_target(tidy_model_brms, get_tidy_model(model_brms)),
   
   # Render the report
-  tar_quarto(report, "report.qmd")
+  tar_quarto(report, "report.qmd"),
+  
+  # Render the supplementary material
+  tar_quarto(trace_pp_check_report, "trace_pp_check_report.qmd")
   
 )
