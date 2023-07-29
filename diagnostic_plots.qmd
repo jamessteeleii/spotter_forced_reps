@@ -1,5 +1,5 @@
 ---
-title: "Trace Plots and Posterior Predictive Check"
+title: "Diagnostic Plots"
 author: "Jürgen Giessing, James Steele, James, P. Fisher"
 format:
   pdf:

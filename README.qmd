@@ -1,6 +1,4 @@
 ---
-title: "How much help do you need? An acute investigation into perceptions of load lifted during forced repetitions."
-author: "Jürgen Giessing, James Steele James, P. Fisher"
 format: gfm
 always_allow_html: yes
 prefer-html: true

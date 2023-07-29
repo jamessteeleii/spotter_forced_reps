@@ -28,6 +28,6 @@ list(
   tar_quarto(report, "report.qmd"),
   
   # Render the supplementary material
-  tar_quarto(trace_pp_check_report, "trace_pp_check_report.qmd")
+  tar_quarto(diagnostic_plots, "diagnostic_plots.qmd")
   
 )
