@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|80f3401a4e6efd0e|||||||||||||||
+.Random.seed|object|f8bdd3447328adb4|||||||||||||||
 data|stem|2be5d7a1bbaa0183|4525b922227c51ac|dd5bc9ec774d9bfd|1588979285||t19565.6663658125s|0e1b3a7b347541fa|2128|rds|local|vector|||0.01||
 file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
 fit_brms_model|function|489cf82a809d209c|||||||||||||||
@@ -8,6 +8,7 @@ get_tidy_model|function|a974002aa428e6f6|||||||||||||||
 individual_data_plot|stem|5f7a4b5bde86715d|7e751a7158f305f2|572f0ba85d425a9c|2061594810||t19565.7238499875s|0b52c5847220add9|82|rds|local|vector|||1.76||
 individual_data_plot_tiff|stem|1d713cb6c49bc42e|5da36e73d7f7ac01|4258b7b810bbca36|-1448408397|plots/individual_data_plot.tiff|t19565.7136739469s|cd221222da9b71b1|27000204|file|local|vector|||1.72||
 make_pp_check|function|0e4b51c9b63b696a|||||||||||||||
+make_rhat_plot|function|6823d2e2c0f622a4|||||||||||||||
 make_trace_plots|function|9684a08a490d3abf|||||||||||||||
 model_brms|stem|c33ea07134b3e368|e817a320354bc47d|a565331b6759ae4e|274656695||t19565.6789392576s|842a312ce4baf6b3|168237227|rds|local|vector|||1079.42|There were 4 chains where the estimated Bayesian Fraction of Missing Information was low. Seehttpsmcstan.orgmiscwarnings.htmlbfmilow. Examine the pairs plot to diagnose sampling problems. Bulk Effective Samples Size ESS is too low, indicating posterior means and medians may be unreliable.Running the chains for more iterations may help. Seehttpsmcstan.orgmiscwarnings.htmlbulkess|
 model_data_plot|stem|b8d402181bdbe1e2|1630eef2c41596a4|71f9c09eb6cdadd5|-682089797||t19565.7273557631s|dff9495c51b724c1|77|rds|local|vector|||295.92||
@@ -16,8 +17,9 @@ plot_individual_data|function|9ae2ce7ae03a1700|||||||||||||||
 plot_model_data|function|a1f87a0d3931cf7e|||||||||||||||
 pp_check_plot|stem|55a50d647fcdada6|008d706a3b76810d|584dcb4a71925917|-2145689577||t19565.6842608s|b5cce724f5da67e5|106982|rds|local|vector|||0.84||
 report|stem|2066c4369e5f72d0|ae5200ea586fc152|d84d7cdd1c3c4b08|-237041703|report.docx*report.qmd|t19566.2786375385s|b22c2f4d3d6d7424|895408|file|local|vector|||8.09|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
+rhat_plot|stem|cac9a646b63dda31|65d6bbfc8fce6e95|9a2f5540e7dac54d|-549662122||t19567.3599989622s|1722307cbb89f96e|168392754|rds|local|vector|||4.13||
 save_individual_data_plot_as_tiff|function|19ab9b166e639a76|||||||||||||||
 save_model_data_plot_as_tiff|function|ec769786a1a731b9|||||||||||||||
 tidy_model_brms|stem|3c2ac2cdb41488d2|b1ee69e055021253|067615355889e94c|-806276733||t19565.6842505363s|95ba3e157e0191d3|1941|rds|local|vector|||0.14|some parameter names contain underscores term naming may be unreliable|
 trace_plots|stem|86213b7bb2e226fd|377c42f8eb90f0ce|f26d8af5b388c09f|242221385||t19565.6842481706s|3224008ef864fc49|51922362|rds|local|vector|||15.03||
-trace_pp_check_report|stem|2b01e1a6aba1fae7|9a13494e81d8d149|01ba0de0b633ed8f|2013909731|trace_pp_check_report.pdf*trace_pp_check_report.qmd|t19566.2863929558s|6118f9639b9dcc9d|1497006|file|local|vector|||19.05||
+trace_pp_check_report|stem|038fec35157019a4|cbf17433baef118b|722933b68deabfe4|2013909731|trace_pp_check_report.pdf*trace_pp_check_report.qmd|t19567.3641988935s|572c166107d5e769|3369653|file|local|vector|||24||

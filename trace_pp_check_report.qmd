@@ -7,7 +7,19 @@ format:
     toc: false
     number-sections: false
     highlight-style: github
+    fig-width: 10
+    fig-height: 10
 ---
+# $\hat{R}$
+
+```{r,message=FALSE,warning=FALSE,echo=FALSE}
+
+targets::tar_load(rhat_plot)
+
+rhat_plot 
+
+
+```
 
 # Trace plots
 

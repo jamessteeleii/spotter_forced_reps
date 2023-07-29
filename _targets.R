@@ -2,7 +2,8 @@
 library(targets)
 library(tarchetypes)
 source("R/functions.R")
-tar_option_set(packages = c("tidyverse", "rstan", "brms", "base", "tidybayes", "ggh4x", "broom.mixed", "quarto"))
+tar_option_set(packages = c("tidyverse", "rstan", "brms", "base", "bayesplot",
+                            "tidybayes", "ggh4x", "broom.mixed", "quarto"))
 
 list(
   # Load in data
@@ -15,7 +16,8 @@ list(
   # Make and save plots
   tar_target(individual_data_plot, plot_individual_data(data)),
   tar_target(model_data_plot, plot_model_data(model_brms, data)),
-
+  
+  tar_target(rhat_plot, make_rhat_plot(model_brms)),
   tar_target(trace_plots, make_trace_plots(model_brms)),
   tar_target(pp_check_plot, make_pp_check(model_brms)),
   

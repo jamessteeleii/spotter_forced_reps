@@ -60,6 +60,17 @@ fit_brms_model <- function(data) {
   
 }
 
+make_rhat_plot <- function(model_brms) {
+  mod_rhat <- enframe(brms::rhat(model_brms)) %>%
+    filter(!str_detect(name, "^r_id"))
+  
+  rhat_main_params <- mod_rhat$value
+  
+  mcmc_rhat(rhat_main_params) +
+    scale_x_continuous(breaks = c(1,1.01,1.02,1.03,1.04,1.05)) +
+    geom_vline(xintercept = 1.01, linetype="dashed", alpha = 0.25)
+}
+
 make_trace_plots <- function(model_brms) {
   plot(model_brms)
 }
