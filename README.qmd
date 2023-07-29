@@ -1,8 +1,9 @@
 ---
 title: "How much help do you need? An acute investigation into perceptions of load lifted during forced repetitions."
-author: "Jürgen GiessinG, James Steele James, P. Fisher"
+author: "Jürgen Giessing, James Steele James, P. Fisher"
 format: gfm
 always_allow_html: yes
+prefer-html: true
 ---
 
 # How much help do you need? An acute investigation into perceptions of load lifted during forced repetitions.
@@ -28,7 +29,7 @@ Useful console functions:
 - `tar_make()` to run targets
 - `tar_visnetwork()` to view pipeline
 
-# This is the current pipeline
+## This is the current pipeline
 
 ```{r,message=FALSE,warning=FALSE,echo=FALSE}
 
