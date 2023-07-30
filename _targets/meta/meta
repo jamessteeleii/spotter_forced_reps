@@ -1,23 +1,29 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|3fb3f0a45292e969|||||||||||||||
+.Random.seed|object|1cdd592f9a2fdc13|||||||||||||||
 data|stem|2be5d7a1bbaa0183|4525b922227c51ac|dd5bc9ec774d9bfd|1588979285||t19565.6663658125s|0e1b3a7b347541fa|2128|rds|local|vector|||0.01||
 diagnostic_plots|stem|8acb327a37ce62d2|a2af29ac462faae3|722933b68deabfe4|-1956402850|diagnostic_plots.pdf*diagnostic_plots.qmd|t19567.3892746252s|c3dcbd005ee5d775|3369116|file|local|vector|||24.05||
 file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
 fit_brms_model|function|489cf82a809d209c|||||||||||||||
 get_data|function|932df0011320e58c|||||||||||||||
 get_tidy_model|function|a974002aa428e6f6|||||||||||||||
-individual_data_plot|stem|5f7a4b5bde86715d|7e751a7158f305f2|572f0ba85d425a9c|2061594810||t19565.7238499875s|0b52c5847220add9|82|rds|local|vector|||1.76||
-individual_data_plot_tiff|stem|1d713cb6c49bc42e|5da36e73d7f7ac01|4258b7b810bbca36|-1448408397|plots/individual_data_plot.tiff|t19565.7136739469s|cd221222da9b71b1|27000204|file|local|vector|||1.72||
+individual_data_plot|stem|999de0409d4b4b1c|7e751a7158f305f2|958cad8d4d4786d2|2061594810||t19568.7102896632s|31af12d19e1ab8af|163928|rds|local|vector|||0.04||
+individual_data_plot_tiff|stem|5f7a4b5bde86715d|ca3b37eaf75315a1|d1ad9e7ef5ceb55d|-1448408397||t19568.7103098818s|0b52c5847220add9|82|rds|local|vector|||1.71||
+make_individual_data_plot_tiff|function|e8448db73bdfe452|||||||||||||||
+make_marg_effs_plot_tiff|function|8345b058bb54f1a7|||||||||||||||
+make_model_data_plot_tiff|function|253844370c252eac|||||||||||||||
 make_pp_check|function|0e4b51c9b63b696a|||||||||||||||
 make_rhat_plot|function|6823d2e2c0f622a4|||||||||||||||
 make_trace_plots|function|9684a08a490d3abf|||||||||||||||
+marg_effs_plot|stem|589a8a1193fb3d6a|b1d181c7e46a0231|31da97ec3b2a4bf8|881102466||t19568.7016334546s|bb21efb9845f6791|191498414|rds|local|vector|||3.88||
+marg_effs_plot_tiff|stem|fa7115c0bf71f1f8|c966c98f07851b8f|cb5535dcb2f897dd|-570145172||t19568.7103977807s|abbdb7fe746336f0|76|rds|local|vector|||3.25||
 model_brms|stem|c33ea07134b3e368|e817a320354bc47d|a565331b6759ae4e|274656695||t19565.6789392576s|842a312ce4baf6b3|168237227|rds|local|vector|||1079.42|There were 4 chains where the estimated Bayesian Fraction of Missing Information was low. Seehttpsmcstan.orgmiscwarnings.htmlbfmilow. Examine the pairs plot to diagnose sampling problems. Bulk Effective Samples Size ESS is too low, indicating posterior means and medians may be unreliable.Running the chains for more iterations may help. Seehttpsmcstan.orgmiscwarnings.htmlbulkess|
-model_data_plot|stem|b8d402181bdbe1e2|1630eef2c41596a4|71f9c09eb6cdadd5|-682089797||t19565.7273557631s|dff9495c51b724c1|77|rds|local|vector|||295.92||
-model_data_plot_tiff|stem|42b58c3a1aa8e452|b70bd4fbad07ecf9|473f3b8867a3a9b8|-1539932946|plots/model_data_plot.tiff|t19565.7152297976s|5d74ccdebeb5f658|13500204|file|local|vector|||2.95||
-plot_individual_data|function|9ae2ce7ae03a1700|||||||||||||||
-plot_model_data|function|a1f87a0d3931cf7e|||||||||||||||
+model_data_plot|stem|f1521f87fc381e8d|1630eef2c41596a4|24d475d0ce7ec132|-682089797||t19568.4685446385s|910d1676b8a64d03|3206934717|rds|local|vector|||18.47||
+model_data_plot_tiff|stem|b8d402181bdbe1e2|65c985baf905d2cf|6db5758648bdd012|-1539932946||t19568.7062584758s|dff9495c51b724c1|77|rds|local|vector|||266||
+plot_individual_data|function|4f128525994c4097|||||||||||||||
+plot_marg_effs|function|02bd4cbfa1650df6|||||||||||||||
+plot_model_data|function|a630fd5186faceb5|||||||||||||||
 pp_check_plot|stem|55a50d647fcdada6|008d706a3b76810d|584dcb4a71925917|-2145689577||t19565.6842608s|b5cce724f5da67e5|106982|rds|local|vector|||0.84||
-report|stem|2066c4369e5f72d0|ae5200ea586fc152|d84d7cdd1c3c4b08|-237041703|report.docx*report.qmd|t19566.2786375385s|b22c2f4d3d6d7424|895408|file|local|vector|||8.09|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
+report|stem|39bf874c1a50d203|3c25be6d757762a7|dbd6170cc8173202|-237041703|report.docx*report.qmd|t19568.4733194581s||2.19030707946833e-308|file|local|vector|||10.72||33m39m System command quarto.exe failed
 rhat_plot|stem|cac9a646b63dda31|65d6bbfc8fce6e95|9a2f5540e7dac54d|-549662122||t19567.3599989622s|1722307cbb89f96e|168392754|rds|local|vector|||4.13||
 save_individual_data_plot_as_tiff|function|19ab9b166e639a76|||||||||||||||
 save_model_data_plot_as_tiff|function|ec769786a1a731b9|||||||||||||||

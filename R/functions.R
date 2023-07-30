@@ -16,7 +16,7 @@ plot_individual_data <- function(data) {
   individual_data_plot <- data %>%
     ggplot(aes(x = actual_assistance_percentage, y = perception_assistance*100, group=role, color=role)) +
     geom_point(position = position_jitter(width = 0.5, height = 0.5)) +
-    geom_line() +
+    geom_line(alpha=0.75) +
     geom_text(aes(label=forced_rep_no, y = (perception_assistance*100)+10), size = 2.5, show.legend = FALSE) +
     facet_wrap(~id, ncol = 9) +
     scale_color_brewer(palette = "Dark2") +
@@ -29,8 +29,6 @@ plot_individual_data <- function(data) {
          subtitle = "Note, the labels indicate which forced repetition number each point corresponds to") +
     theme_bw() +
     theme(legend.position = "bottom")
-  
-  ggsave("plots/individual_data_plot.tiff", individual_data_plot, width = 10, height = 10, device = "tiff", dpi = 300)
   
 }
 
@@ -108,8 +106,6 @@ plot_model_data <- function(model_brms, data) {
     theme_bw() + 
     theme(panel.grid=element_blank())
   
-  ggsave("plots/model_data_plot.tiff", model_data_plot, width = 10, height = 5, device = "tiff", dpi = 300)
-  
 }
 
 get_tidy_model <- function(model_brms) {
@@ -118,4 +114,55 @@ get_tidy_model <- function(model_brms) {
            std.error = plogis(std.error)*100, 
            conf.low = plogis(conf.low)*100, 
            conf.high = plogis(conf.high)*100) # transform coefficients from logit back to the % scale
+}
+
+plot_marg_effs <- function(model_brms, data) {
+  dat <- datagrid(actual_assistance_percentage = seq(from=0, to=100, length=11),
+                  role = unique(data$role),
+                  forced_rep_no = c(-0.5,0.5),
+                  model = model_brms) 
+  
+  marg_effs <- slopes(model_brms,
+                      variables="actual_assistance_percentage",
+                      newdata = dat,
+                      re_formula = NA) %>%
+    posterior_draws() 
+  
+  marg_effs_plot <- marg_effs %>%
+    mutate(rep_label = "Forced Repetition Number",
+           forced_rep_no = if_else(forced_rep_no == -0.5, 1, 2),
+           actual_assistance_percentage = factor(actual_assistance_percentage)) %>%
+    ggplot(aes(x = actual_assistance_percentage, y = draw*100, color=role, fill=role)) +
+    geom_hline(yintercept = 1, linetype = "dashed") +
+    stat_pointinterval(.width = .95, alpha = 0.75, position = position_dodge(width = 0.2),
+                      size=1) +
+    scale_fill_brewer(palette = "Set2") +
+    scale_color_brewer(palette = "Dark2") +
+    facet_nested(.~rep_label + forced_rep_no) +
+    labs(
+      title = "Average Marginal Effects (i.e., Slopes) for the Expectation of the Posterior Predictive Distribution",
+      subtitle = "Global grand mean and 95% credible interval (CI)",
+      x = "Actual Assistance Provided (%)",
+      y = "Marginal Effect of Actual Assistance Provided (%)",
+      color = "Role", fill = "Role") +
+    theme_bw() + 
+    theme(panel.grid=element_blank())
+}
+
+make_individual_data_plot_tiff <- function(individual_data_plot) {
+  
+  ggsave("plots/individual_data_plot.tiff", individual_data_plot, width = 10, height = 10, device = "tiff", dpi = 300)
+  
+}
+
+make_model_data_plot_tiff <- function(model_data_plot) {
+  
+  ggsave("plots/model_data_plot.tiff", model_data_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+  
+}
+
+make_marg_effs_plot_tiff <- function(marg_effs_plot) {
+  
+  ggsave("plots/marg_effs_plot.tiff", marg_effs_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+  
 }

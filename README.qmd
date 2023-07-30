@@ -29,8 +29,13 @@ Useful console functions:
 
 ## This is the current pipeline
 
-```{r,message=FALSE,warning=FALSE,echo=FALSE}
+```{r message=FALSE}
 
-targets::tar_visnetwork()
+targets::tar_visnetwork(
+  # this first argument is only required for static output
+  # https://github.com/ropensci/targets/discussions/819
+  callr_arguments = list(spinner = FALSE), 
+  targets_only = TRUE)
+
 
 ```
