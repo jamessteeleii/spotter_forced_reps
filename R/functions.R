@@ -34,9 +34,6 @@ plot_individual_data <- function(data) {
 
 fit_brms_model <- function(data) {
   
-  data <- data %>%
-    mutate(forced_rep_no = forced_rep_no-1.5) # centred to aid interpretation of actual assistance slope
-  
   # run rstan quicker - for bayesian beta regression later on
   rstan_options(auto_write = TRUE)
   options(mc.cores = parallel::detectCores()-1)
@@ -49,7 +46,6 @@ fit_brms_model <- function(data) {
                                   data = data,
                                   seed = 1988,
                                   family = Beta(),
-                                  # prior = prior,
                                   chains = 4,
                                   iter = 8000, warmup = 4000,
                                   cores = 4,
@@ -81,12 +77,11 @@ plot_model_data <- function(model_brms, data) {
   posterior_epred_draws <- crossing(actual_assistance_percentage = seq(from = 0, to = max(data$actual_assistance_percentage), length = max(data$actual_assistance_percentage)),
                                     id = unique(data$id),
                                     role = unique(data$role),
-                                    forced_rep_no = c(-0.5,0.5)) %>%
+                                    forced_rep_no = c(1,2)) %>%
     add_epred_draws(model_brms, re_formula = NA, ndraws = 4000) 
   
   model_data_plot <- posterior_epred_draws %>%
-    mutate(rep_label = "Forced Repetition Number",
-           forced_rep_no = if_else(forced_rep_no == -0.5, 1, 2)) %>%
+    mutate(rep_label = "Forced Repetition Number") %>%
     ggplot(aes(x = actual_assistance_percentage, y = .epred*100, color=role, fill=role)) +
     geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
     geom_point(data=data, aes(x = actual_assistance_percentage, y = perception_assistance*100, color=role, fill=role),
@@ -109,17 +104,13 @@ plot_model_data <- function(model_brms, data) {
 }
 
 get_tidy_model <- function(model_brms) {
-  tidy(model_brms) %>%
-    mutate(estimate = plogis(estimate)*100,
-           std.error = plogis(std.error)*100, 
-           conf.low = plogis(conf.low)*100, 
-           conf.high = plogis(conf.high)*100) # transform coefficients from logit back to the % scale
+  tidy(model_brms) 
 }
 
-plot_marg_effs <- function(model_brms, data) {
+plot_marg_effs_act_assist <- function(model_brms, data) {
   dat <- datagrid(actual_assistance_percentage = seq(from=0, to=100, length=11),
                   role = unique(data$role),
-                  forced_rep_no = c(-0.5,0.5),
+                  forced_rep_no = c(1,2),
                   model = model_brms) 
   
   marg_effs <- slopes(model_brms,
@@ -130,17 +121,17 @@ plot_marg_effs <- function(model_brms, data) {
   
   marg_effs_plot <- marg_effs %>%
     mutate(rep_label = "Forced Repetition Number",
-           forced_rep_no = if_else(forced_rep_no == -0.5, 1, 2),
            actual_assistance_percentage = factor(actual_assistance_percentage)) %>%
     ggplot(aes(x = actual_assistance_percentage, y = draw*100, color=role, fill=role)) +
     geom_hline(yintercept = 1, linetype = "dashed") +
-    stat_pointinterval(.width = .95, alpha = 0.75, position = position_dodge(width = 0.2),
-                      size=1) +
+    stat_slabinterval(.width = .95, alpha = 0.25, position = position_dodge(width = 0.2),
+                      size=1, scale = 1.5) +
     scale_fill_brewer(palette = "Set2") +
     scale_color_brewer(palette = "Dark2") +
     facet_nested(.~rep_label + forced_rep_no) +
+    scale_y_continuous(limit = c(-0.5,2.25)) +
     labs(
-      title = "Average Marginal Effects (i.e., Slopes) for the Expectation of the Posterior Predictive Distribution",
+      title = "Average Marginal Effects (i.e., Slopes) for Actual Assitance Provided",
       subtitle = "Global grand mean and 95% credible interval (CI)",
       x = "Actual Assistance Provided (%)",
       y = "Marginal Effect of Actual Assistance Provided (%)",
@@ -149,10 +140,98 @@ plot_marg_effs <- function(model_brms, data) {
     theme(panel.grid=element_blank())
 }
 
+plot_marg_effs_role <- function(model_brms, data) {
+  dat <- datagrid(actual_assistance_percentage = seq(from=0, to=100, length=11),
+                  role = unique(data$role),
+                  forced_rep_no = c(1,2),
+                  model = model_brms) 
+  
+  marg_effs <- slopes(model_brms,
+                      variables="role",
+                      newdata = dat,
+                      re_formula = NA) %>%
+    posterior_draws() 
+  
+  marg_effs_plot <- marg_effs %>%
+    mutate(rep_label = "Forced Repetition Number",
+           actual_assistance_percentage = factor(actual_assistance_percentage)) %>%
+    ggplot(aes(x = actual_assistance_percentage, y = draw*100)) +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    stat_slabinterval(.width = .95, alpha = 0.25) +
+    facet_nested(.~rep_label + forced_rep_no) +
+    scale_y_continuous(limit = c(-70,70), breaks = c(-70,-60,-50,-40,-30,-20,-10,0,10,20,30,40,50,60,70)) +
+    labs(
+      title = "Average Marginal Effects (i.e., Slopes) for Role",
+      subtitle = "Global grand mean and 95% credible interval (CI)",
+      x = "Actual Assistance Provided (%)",
+      y = "Marginal Effect of Role (%)") +
+    theme_bw() + 
+    theme(panel.grid=element_blank())
+  
+  
+}
+
+plot_marg_effs_rep <- function(model_brms, data) {
+  dat <- datagrid(actual_assistance_percentage = seq(from=0, to=100, length=11),
+                  role = unique(data$role),
+                  forced_rep_no = c(1,2),
+                  model = model_brms) 
+  
+  marg_effs <- slopes(model_brms,
+                      variables="forced_rep_no",
+                      newdata = dat,
+                      re_formula = NA) %>%
+    posterior_draws() 
+  
+  marg_effs_plot <- marg_effs %>%
+    mutate(role_label = "Role",
+           actual_assistance_percentage = factor(actual_assistance_percentage)) %>%
+    ggplot(aes(x = actual_assistance_percentage, y = draw*100)) +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    stat_slabinterval(.width = .95, alpha = 0.25) +
+    facet_nested(.~ role_label + role) +
+    scale_y_continuous(limit = c(-70,70), breaks = c(-70,-60,-50,-40,-30,-20,-10,0,10,20,30,40,50,60,70)) +
+    labs(
+      title = "Average Marginal Effects (i.e., Slopes) for Forced Repetition Number",
+      subtitle = "Global grand mean and 95% credible interval (CI)",
+      x = "Actual Assistance Provided (%)",
+      y = "Marginal Effect of Forced Repetition Number (%)") +
+    theme_bw() + 
+    theme(panel.grid=element_blank())
+}
+  
 make_individual_data_plot_tiff <- function(individual_data_plot) {
   
   ggsave("plots/individual_data_plot.tiff", individual_data_plot, width = 10, height = 10, device = "tiff", dpi = 300)
   
+}
+
+plot_cond_effs <- function(model_brms, data) {
+  posterior_epred_draws <- crossing(actual_assistance_percentage = seq(from = 0, to = max(data$actual_assistance_percentage), length = max(data$actual_assistance_percentage)),
+                                    id = unique(data$id),
+                                    role = unique(data$role),
+                                    forced_rep_no = c(1,2)) %>%
+    add_epred_draws(model_brms, re_formula = NULL, ndraws = 4000) 
+  
+  
+  model_data_plot <- posterior_epred_draws %>%
+    mutate(role_label = "Role",
+           rep_label = "Forced Repetition Number") %>%
+    ggplot(aes(x = actual_assistance_percentage, y = .epred*100)) +
+    # stat_lineribbon(aes(y = .epred*100, fill_ramp = stat(.width)), size = 0.5, alpha = 0.8, .width = ppoints(100), fill = "#0072B2") +
+    # ggdist::scale_fill_ramp_continuous(range = c(1, 0), , guide = ggdist::guide_rampbar(to = "#0072B2")) +
+    geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+    ggdist::stat_ribbon(aes(y = .epred*100), .width = .95, alpha = 0.25, show.legend=FALSE, fill = "#0072B2") +
+    scale_x_continuous(breaks = c(0,25,50,75,100)) +
+    scale_y_continuous(breaks = c(0,25,50,75,100)) +
+    facet_nested(role_label + role ~ rep_label + forced_rep_no) +
+    labs(
+      title = "Conditional Expectation of the Posterior Predictive Distribution",
+      subtitle = "95% credible interval (CI) incorporating all fixed and random effects",
+      x = "Actual Assistance Provided (%)",
+      y = "Perception of Assistance Provided (%)") +
+    theme_bw() + 
+    theme(panel.grid=element_blank())
 }
 
 make_model_data_plot_tiff <- function(model_data_plot) {
@@ -161,8 +240,30 @@ make_model_data_plot_tiff <- function(model_data_plot) {
   
 }
 
-make_marg_effs_plot_tiff <- function(marg_effs_plot) {
+make_marg_effs_plot_tiff <- function(marg_effs_act_assist_plot, marg_effs_rep_plot, marg_effs_role_plot) {
   
-  ggsave("plots/marg_effs_plot.tiff", marg_effs_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+  (marg_effs_act_assist_plot / marg_effs_rep_plot / marg_effs_role_plot) +
+    plot_annotation(tag_level = "A",
+                    tag_prefix = "(", tag_suffix = ")")
+  
+  ggsave("plots/marg_effs_plot.tiff", width = 10, height = 15, device = "tiff", dpi = 300)
+  
+}
+
+# make_marg_effs_act_assist_plot_tiff <- function(marg_effs_act_assist_plot) {
+#   
+#   ggsave("plots/marg_effs_act_assist_plot.tiff", marg_effs_act_assist_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+#   
+# }
+# 
+# make_marg_effs_rep_plot_tiff <- function(marg_effs_rep_plot) {
+#   
+#   ggsave("plots/marg_effs_rep_plot.tiff", marg_effs_rep_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+#   
+# }
+
+make_cond_effs_plot_tiff <- function(cond_effs_plot) {
+  
+  ggsave("plots/cond_effs_plot.tiff", cond_effs_plot, width = 10, height = 10, device = "tiff", dpi = 300)
   
 }
