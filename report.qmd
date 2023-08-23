@@ -10,7 +10,13 @@ bibliography: references.bib
 csl: apa.csl
 ---
 
-```{r setup, include=FALSE}
+```{r} 
+#| message: false
+#| warning: false
+#| echo: false
+#| include: false
+
+
 knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 options(knitr.kable.NA = '')
 
@@ -32,7 +38,15 @@ All analysis was performed in R (version 4.2.3, The R Foundation for Statistical
 
 The overall grand means from the model for the fixed effects (i.e., without including the random effects) can be seen in @fig-model-data-plot across both the first and second forced repetitions, and for both trainee and spotter roles. The marginal effects for each independent variable are shown in @fig-marg-effs-data-plot. The slopes for actual assistance provided were closer to the identity (i.e., a slope of one meaning that a one unit increase in actual assistance provided was related to a one unit increase perception of assistance provided) over the range in which there were most observations available (\~20-40% actual assistance) in forced repetition one and for both trainee and spotter roles. During repetition two there was a tendency in both trainees and spotters for increases in the actual assistance provided to be perceived as a lesser change in assistance (i.e., slopes less than one; panel (A) of @fig-marg-effs-data-plot). Both trainees and spotters tended to perceive the assistance being provided as greater during the first repetition, and also over lower levels of actual assistance (panel (B) of @fig-marg-effs-data-plot). A slight interaction effect of actual assistance provided upon the slope of repetition number can also be seen in panel (B) of @fig-marg-effs-data-plot (i.e., a reversal of the slope sign suggesting at higher actual assistance repetition two was perceived as receiving less assistance). There was little interaction effects of role (panel (C) of @fig-marg-effs-data-plot), but trainees did tend to perceive the assistance being provided by spotters as being greater than it actually was to a greater degree than spotters themselves, at least over lower levels of actual assistance.
 
-```{r fig-model-data-plot, message=FALSE, warning=FALSE, echo=FALSE, fig.height=5, fig.width=10, fig.cap="Global grand means and credible interval estimates from the expectation of the posterior predictive distribution for the relationship of actual assistance provided with perception of assistance provided over both forced repetitions and participant roles. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line."}
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-model-data-plot 
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: Global grand means and credible interval estimates from the expectation of the posterior predictive distribution for the relationship of actual assistance provided with perception of assistance provided over both forced repetitions and participant roles. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line.
 
 targets::tar_load(model_data_plot)
 
@@ -40,7 +54,15 @@ model_data_plot
 
 ```
 
-```{r fig-marg-effs-data-plot, message=FALSE, warning=FALSE, echo=FALSE, fig.height=15, fig.width=10, fig.cap="Average marginal effect estimates (i.e., slopes) from expectations of the posterior predictive distributions for (A) the relationship actual assistance provided with perception of assistance provided over both forced repetitions and participant roles, (B) the effect of forced repetition number over both actual assistance provided and participant role, and (C) the effect of participant role over actual assistance provided and forced repetition number. For panel (A) the dashed line indicates a slope value of one for actual assistance provided and perception of assistance provided, where a value of one indicates strong identity i.e., a one to one change in the magnitude of perception for a change in the magnitude of actual assistance provided. In both other panels the dashed line indicates a value of zero."}
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-marg-effs-data-plot 
+#| fig-width: 10
+#| fig-height: 15
+#| fig-cap: Average marginal effect estimates (i.e., slopes) from expectations of the posterior predictive distributions for (A) the relationship actual assistance provided with perception of assistance provided over both forced repetitions and participant roles, (B) the effect of forced repetition number over both actual assistance provided and participant role, and (C) the effect of participant role over actual assistance provided and forced repetition number. For panel (A) the dashed line indicates a slope value of one for actual assistance provided and perception of assistance provided, where a value of one indicates strong identity i.e., a one to one change in the magnitude of perception for a change in the magnitude of actual assistance provided. In both other panels the dashed line indicates a value of zero.
+
 
 targets::tar_load(marg_effs_act_assist_plot)
 targets::tar_load(marg_effs_role_plot)
@@ -55,9 +77,17 @@ targets::tar_load(marg_effs_rep_plot)
 
 # Heterogeneity of effects
 
-Despite these qualitative trends in our modeled results, there was evidently considerable variance in effects between participants. @fig-individual-data-plot shows the individual data for each participant, and @fig-cond-effs-data-plot shows the conditional effects from the expected posterior distribution (i.e., including the fixed and random effects and their uncertainty). With the exception of spotter at low levels of actual assistance provided, the variance in predicted effects covered almost the entire range of the dependent variable (i.e., perception of assistance provided; 0-100%) suggesting all effects to be quite heterogeneous. @tbl-random-effs-tab shows that all model terms, with the exception of the intercept and actual assistance provided, showed noteworthy heterogeneity (i.e., ratio of standard deviation to mean estimate $\leq{0.25}$)
+Despite these qualitative trends in our modeled results, there was evidently considerable variance in effects between participants. @fig-individual-data-plot shows the individual data for each participant, and @fig-cond-effs-data-plot shows the conditional effects from the expected posterior distribution (i.e., including the fixed and random effects and their uncertainty). With the exception of spotter at low levels of actual assistance provided, the variance in predicted effects covered almost the entire range of the dependent variable (i.e., perception of assistance provided; 0-100%) suggesting all effects to be quite heterogeneous. @tbl-random-effs shows that all model terms, with the exception of the intercept and actual assistance provided, showed noteworthy heterogeneity (i.e., ratio of standard deviation to mean estimate $\leq{0.25}$)
 
-```{r fig-individual-data-plot, message=FALSE, warning=FALSE, echo=FALSE, fig.height=10, fig.width=10, fig.cap="Individual data plot. Each panel shows the raw data for an individual participant."}
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-individual-data-plot
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: Individual data plot. Each panel shows the raw data for an individual participant.
+
 
 targets::tar_load(individual_data_plot)
 
@@ -65,7 +95,14 @@ individual_data_plot
 
 ```
 
-```{r fig-cond-effs-data-plot, message=FALSE, warning=FALSE, echo=FALSE, fig.height=10, fig.width=10, fig.cap="Conditional estimates plot. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line."}
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-cond-effs-data-plot
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: Conditional estimates plot. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line.
 
 targets::tar_load(cond_effs_plot)
 
@@ -73,7 +110,13 @@ cond_effs_plot
 
 ```
 
-```{r tbl-random-effs-tab, message=FALSE, warning=FALSE, echo=FALSE, tbl.cap.location = "top", tbl.cap="Parameter estimates for both fixed and random effects (i.e., standard deviations between participants) on the logit scale."}
+```{r} 
+#| message: false
+#| warning: false
+#| echo: false
+#| label: tbl-random-effs 
+#| tbl-cap-location: "top"
+#| tbl-cap: Parameter estimates for both fixed and random effects (i.e., standard deviations between participants) on the logit scale.
 
 targets::tar_load(tidy_model_brms)
 

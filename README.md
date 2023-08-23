@@ -23,4 +23,5 @@ Useful console functions:
 - `tar_make()` to run targets
 - `tar_visnetwork()` to view pipeline
 
+You can view the current interactive pipeline by clicking [here](https://raw.githack.com/jamessteeleii/spotter_forced_reps/main/visnetwork.html).
 

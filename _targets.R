@@ -4,7 +4,8 @@ library(tarchetypes)
 source("R/functions.R")
 tar_option_set(packages = c("tidyverse", "rstan", "brms", "base", "bayesplot",
                             "tidybayes", "ggh4x", "broom.mixed", "quarto", "marginaleffects",
-                            "kableExtra", "patchwork"))
+                            "kableExtra", "patchwork"),
+               error = "null")
 
 list(
   # Load in data
@@ -35,11 +36,11 @@ list(
   # Render the supplementary material
   tar_quarto(diagnostic_plots, "diagnostic_plots.qmd"),
   
-  # Render plots as tiff files for submission
-  tar_target(individual_data_plot_tiff, make_individual_data_plot_tiff(individual_data_plot)),
-  tar_target(model_data_plot_tiff, make_model_data_plot_tiff(model_data_plot)),
-  tar_target(marg_effs_plot_tiff, make_marg_effs_plot_tiff(marg_effs_act_assist_plot, marg_effs_rep_plot, marg_effs_role_plot)),
-  tar_target(cond_effs_plot_tiff, make_cond_effs_plot_tiff(cond_effs_plot))
+  # Render plots as png files for submission
+  tar_target(individual_data_plot_png, make_individual_data_plot_png(individual_data_plot)),
+  tar_target(model_data_plot_png, make_model_data_plot_png(model_data_plot)),
+  tar_target(marg_effs_plot_png, make_marg_effs_plot_png(marg_effs_act_assist_plot, marg_effs_rep_plot, marg_effs_role_plot)),
+  tar_target(cond_effs_plot_png, make_cond_effs_plot_png(cond_effs_plot))
   
   
 )

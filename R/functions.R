@@ -131,7 +131,7 @@ plot_marg_effs_act_assist <- function(model_brms, data) {
     facet_nested(.~rep_label + forced_rep_no) +
     scale_y_continuous(limit = c(-0.5,2.25)) +
     labs(
-      title = "Average Marginal Effects (i.e., Slopes) for Actual Assitance Provided",
+      title = "Average Marginal Effects (i.e., Slopes) for Actual Assistance Provided",
       subtitle = "Global grand mean and 95% credible interval (CI)",
       x = "Actual Assistance Provided (%)",
       y = "Marginal Effect of Actual Assistance Provided (%)",
@@ -200,9 +200,9 @@ plot_marg_effs_rep <- function(model_brms, data) {
     theme(panel.grid=element_blank())
 }
   
-make_individual_data_plot_tiff <- function(individual_data_plot) {
+make_individual_data_plot_png <- function(individual_data_plot) {
   
-  ggsave("plots/individual_data_plot.tiff", individual_data_plot, width = 10, height = 10, device = "tiff", dpi = 300)
+  ggsave("plots/individual_data_plot.png", individual_data_plot, width = 10, height = 10, device = "png", dpi = 300)
   
 }
 
@@ -234,36 +234,36 @@ plot_cond_effs <- function(model_brms, data) {
     theme(panel.grid=element_blank())
 }
 
-make_model_data_plot_tiff <- function(model_data_plot) {
+make_model_data_plot_png <- function(model_data_plot) {
   
-  ggsave("plots/model_data_plot.tiff", model_data_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+  ggsave("plots/model_data_plot.png", model_data_plot, width = 10, height = 5, device = "png", dpi = 300)
   
 }
 
-make_marg_effs_plot_tiff <- function(marg_effs_act_assist_plot, marg_effs_rep_plot, marg_effs_role_plot) {
+make_marg_effs_plot_png <- function(marg_effs_act_assist_plot, marg_effs_rep_plot, marg_effs_role_plot) {
   
   (marg_effs_act_assist_plot / marg_effs_rep_plot / marg_effs_role_plot) +
     plot_annotation(tag_level = "A",
                     tag_prefix = "(", tag_suffix = ")")
   
-  ggsave("plots/marg_effs_plot.tiff", width = 10, height = 15, device = "tiff", dpi = 300)
+  ggsave("plots/marg_effs_plot.png", width = 10, height = 15, device = "png", dpi = 300)
   
 }
 
-# make_marg_effs_act_assist_plot_tiff <- function(marg_effs_act_assist_plot) {
+# make_marg_effs_act_assist_plot_png <- function(marg_effs_act_assist_plot) {
 #   
-#   ggsave("plots/marg_effs_act_assist_plot.tiff", marg_effs_act_assist_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+#   ggsave("plots/marg_effs_act_assist_plot.png", marg_effs_act_assist_plot, width = 10, height = 5, device = "png", dpi = 300)
 #   
 # }
 # 
-# make_marg_effs_rep_plot_tiff <- function(marg_effs_rep_plot) {
+# make_marg_effs_rep_plot_png <- function(marg_effs_rep_plot) {
 #   
-#   ggsave("plots/marg_effs_rep_plot.tiff", marg_effs_rep_plot, width = 10, height = 5, device = "tiff", dpi = 300)
+#   ggsave("plots/marg_effs_rep_plot.png", marg_effs_rep_plot, width = 10, height = 5, device = "png", dpi = 300)
 #   
 # }
 
-make_cond_effs_plot_tiff <- function(cond_effs_plot) {
+make_cond_effs_plot_png <- function(cond_effs_plot) {
   
-  ggsave("plots/cond_effs_plot.tiff", cond_effs_plot, width = 10, height = 10, device = "tiff", dpi = 300)
+  ggsave("plots/cond_effs_plot.png", cond_effs_plot, width = 10, height = 10, device = "png", dpi = 300)
   
 }
