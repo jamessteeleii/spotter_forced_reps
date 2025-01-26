@@ -1,56 +1,56 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|ce8cb80849d47b23|||||||||||||||
-cond_effs_plot|stem|afa2a7113042c3a9|60d86a76823deb00|118533386cbef773|1162375105||t19569.4619934318s|ca71aca063faf7af|3222727053|rds|local|vector|||14.08||
-cond_effs_plot_png|stem|9c1e9b8c25b54def|2e73d83712df7458|dcda233cd223e3c0|689716775||t19591.6580311037s|ff026697d66e9a9f|75|rds|local|vector|||272.69||
 cond_effs_plot_tiff|stem|ce83fb65fe0d8f94|e1c32fbdfd08c29a|b7549f615be3f2df|-1079030656||t19569.5907965231s|abbdb7fe746336f0|76|rds|local|vector|||283.3||
-data|stem|2be5d7a1bbaa0183|4525b922227c51ac|dd5bc9ec774d9bfd|1588979285||t19565.6663658125s|0e1b3a7b347541fa|2128|rds|local|vector|||0.01||
-diagnostic_plots|stem|0d7b9c50b075987b|a2af29ac462faae3|a80c6ee1cc0966c6|-1956402850|diagnostic_plots.pdf*diagnostic_plots.qmd|t19569.5208679725s|ed08be93d2eeb03d|3357097|file|local|vector|||24.04||
-file|stem|88f03ace3f38e3f3|f24bfd882dbde2a1|ef46db3751d8e999|-1301001980|data/data forced rep study.csv|t19564.5461506606s|5c14bec3f98b8f26|4088|file|local|vector|||2.7|package ggplot2 was built under R version 4.2.3. package tibble was built under R version 4.2.3. package tidyr was built under R version 4.2.3. package readr was built under R version 4.2.3. package purrr was built under R version 4.2.3. package stringr was built under R version 4.2.3. package forcats was built under R version 4.2.3. package lubridate was built under R version 4.2.3. package rstan was built under R version 4.2.3|
-fit_brms_model|function|e25044aa35cf9a68|||||||||||||||
-get_data|function|932df0011320e58c|||||||||||||||
-get_tidy_model|function|1517b347c5d482ae|||||||||||||||
-individual_data_plot|stem|999de0409d4b4b1c|7e751a7158f305f2|958cad8d4d4786d2|2061594810||t19568.7102896632s|31af12d19e1ab8af|163928|rds|local|vector|||0.04||
-individual_data_plot_png|stem|6bcd594464ccd811|fad90ca0024b2518|15df074db4f53136|787086524||t19591.6450144725s|e655bbbdcbba1d63|81|rds|local|vector|||2.19||
 individual_data_plot_tiff|stem|5f7a4b5bde86715d|ca3b37eaf75315a1|d1ad9e7ef5ceb55d|-1448408397||t19568.7103098818s|0b52c5847220add9|82|rds|local|vector|||1.71||
-make_cond_effs_plot_png|function|bc2cbb36ecd14490|||||||||||||||
 make_cond_effs_plot_tiff|function|9362ca45238441a4|||||||||||||||
-make_individual_data_plot_png|function|f487e10c19c39297|||||||||||||||
 make_individual_data_plot_tiff|function|e8448db73bdfe452|||||||||||||||
 make_marg_effs_act_assist_plot_tiff|function|161b652114f695af|||||||||||||||
-make_marg_effs_plot_png|function|49e6cde225ab1fb2|||||||||||||||
 make_marg_effs_plot_tiff|function|ccd70fb2ed6933aa|||||||||||||||
 make_marg_effs_rep_plot_tiff|function|ab49ff84327b048e|||||||||||||||
 make_marg_effs_role_plot_tiff|function|4cfa3ddd8d0ddcde|||||||||||||||
-make_model_data_plot_png|function|add2f8b2b77dc1f3|||||||||||||||
 make_model_data_plot_tiff|function|253844370c252eac|||||||||||||||
-make_pp_check|function|0e4b51c9b63b696a|||||||||||||||
-make_rhat_plot|function|6823d2e2c0f622a4|||||||||||||||
-make_trace_plots|function|9684a08a490d3abf|||||||||||||||
-marg_effs_act_assist_plot|stem|d41a265453148edc|f59fdfee3d4d6e2f|34d305f44445809c|-901548742||t19591.6640942157s|468fa18777cb6e02|191703195|rds|local|vector|||3.87||
 marg_effs_act_assist_plot_tiff|stem|06d19273fd2ee5bd|c4d6ba51fa6418f0|e4952151a4ed9012|-1856055525||t19569.5209632547s|e7d9c43b1c994be3|87|rds|local|vector|||4.69|1m22mRemoved 21 rows containing missing values stat_slabinterval.. 1m22mRemoved 496 rows containing missing values stat_slabinterval.|
 marg_effs_plot|stem|589a8a1193fb3d6a|b1d181c7e46a0231|31da97ec3b2a4bf8|881102466||t19568.7016334546s|bb21efb9845f6791|191498414|rds|local|vector|||3.88||
-marg_effs_plot_png|stem|7bb748e976b34c27|6ec934487ddb2251|15707a62e9635ff8|-810848470||t19591.6642986226s|ff026697d66e9a9f|75|rds|local|vector|||10.31|1m22mRemoved 21 rows containing missing values stat_slabinterval.. 1m22mRemoved 496 rows containing missing values stat_slabinterval.. 1m22mRemoved 164 rows containing missing values stat_slabinterval.. 1m22mRemoved 366 rows containing missing values stat_slabinterval.. 1m22mRemoved 20 rows containing missing values stat_slabinterval.. 1m22mRemoved 22 rows containing missing values stat_slabinterval.|
 marg_effs_plot_tiff|stem|fa7115c0bf71f1f8|1d1ecbde7fb0877f|9af71568ff291fc7|-570145172||t19569.9852679935s|abbdb7fe746336f0|76|rds|local|vector|||10.97|1m22mRemoved 21 rows containing missing values stat_slabinterval.. 1m22mRemoved 496 rows containing missing values stat_slabinterval.. 1m22mRemoved 164 rows containing missing values stat_slabinterval.. 1m22mRemoved 366 rows containing missing values stat_slabinterval.. 1m22mRemoved 20 rows containing missing values stat_slabinterval.. 1m22mRemoved 22 rows containing missing values stat_slabinterval.|
-marg_effs_rep_plot|stem|a0546493931d2daa|6726932a94bab42b|f70a41aa2e635318|355411105||t19569.4563822828s|09c7e3416bad4fc2|190857512|rds|local|vector|||3.17||
 marg_effs_rep_plot_tiff|stem|904a8cb219964a2d|e60528949d7a7650|d11ee6feda6ed4b1|-1137599820||t19569.4655049576s|6281f79619f6778a|80|rds|local|vector|||2.33|1m22mRemoved 164 rows containing missing values stat_slabinterval.. 1m22mRemoved 366 rows containing missing values stat_slabinterval.|
-marg_effs_role_plot|stem|d182e1860353f4c3|47dff61fec6048b5|66fc6374f20939fc|-194444198||t19569.4622007123s|6558207c53c1b36c|181583797|rds|local|vector|||4.67||
 marg_effs_role_plot_tiff|stem|03c99abb4552e400|690f5d337db251dc|30e9694dc3fa2fe2|1163509850||t19569.5210415181s|e655bbbdcbba1d63|81|rds|local|vector|||3.38|1m22mRemoved 20 rows containing missing values stat_slabinterval.. 1m22mRemoved 22 rows containing missing values stat_slabinterval.|
-model_brms|stem|047c7f1dd618fcf4|e817a320354bc47d|3de11899138353fa|274656695||t19569.451075241s|b9de0d7fc80433e0|168384260|rds|local|vector|||1238.92|There were 2 divergent transitions after warmup. Seehttpsmcstan.orgmiscwarnings.htmldivergenttransitionsafterwarmupto find out why this is a problem and how to eliminate them.. There were 4 chains where the estimated Bayesian Fraction of Missing Information was low. Seehttpsmcstan.orgmiscwarnings.htmlbfmilow. Examine the pairs plot to diagnose sampling problems|
-model_data_plot|stem|725c480fd3669cd4|1630eef2c41596a4|95046baa71eac20c|-682089797||t19569.4559687442s|5f7a8540f87b3b3d|3209057827|rds|local|vector|||12.18||
-model_data_plot_png|stem|1b5963c15eeaaa23|dcf18a71d6e3b11e|89c35e057b25afd8|-500588783||t19591.6689616405s|abbdb7fe746336f0|76|rds|local|vector|||270.27||
 model_data_plot_tiff|stem|b8d402181bdbe1e2|65c985baf905d2cf|189145d4132355ad|-1539932946||t19569.4654778171s|dff9495c51b724c1|77|rds|local|vector|||268.87||
-plot_cond_effs|function|a692a9553c2835c3|||||||||||||||
-plot_individual_data|function|4f128525994c4097|||||||||||||||
 plot_marg_effs|function|02bd4cbfa1650df6|||||||||||||||
-plot_marg_effs_act_assist|function|c32421a0a2906133|||||||||||||||
-plot_marg_effs_rep|function|334cb86b9ab58b2f|||||||||||||||
-plot_marg_effs_role|function|ce0b2f2ade8fb691|||||||||||||||
-plot_model_data|function|0b484873eaf327a1|||||||||||||||
-pp_check_plot|stem|f5f760dfab6901a3|008d706a3b76810d|66bc4b0d80486d48|-2145689577||t19569.4563948921s|b5cce724f5da67e5|106982|rds|local|vector|||0.7||
 report|stem|18b2276460caad10|1a17be426b54482d|4a7d13d82fcd41eb|-237041703|report.docx*report.qmd|t19592.3774596044s|3817059a1e50911a|159834|file|local|vector|||894.15||
-rhat_plot|stem|d8ad4ab6d92e6620|65d6bbfc8fce6e95|09b7bf32e56367de|-549662122||t19569.4565135655s|68bf88195bfc6549|168546557|rds|local|vector|||3.25||
 save_individual_data_plot_as_tiff|function|19ab9b166e639a76|||||||||||||||
 save_model_data_plot_as_tiff|function|ec769786a1a731b9|||||||||||||||
-tidy_model_brms|stem|592bc5ba1b356ac2|b1ee69e055021253|55901f972eb0b1b8|-806276733||t19569.4565170426s|9b5321053f51a06e|1974|rds|local|vector|||0.11|some parameter names contain underscores term naming may be unreliable|
-trace_plots|stem|6a5d3acd5c240634|377c42f8eb90f0ce|859a878478127a01|242221385||t19569.4562122775s|9f6cfe5b0f93e114|51880646|rds|local|vector|||14.9||
 trace_pp_check_report|stem|038fec35157019a4|cbf17433baef118b|722933b68deabfe4|2013909731|trace_pp_check_report.pdf*trace_pp_check_report.qmd|t19567.3641988935s|572c166107d5e769|3369653|file|local|vector|||24||
+.Random.seed|object|072524f36dd3cb69|||||||||||||||
+diagnostic_plots|stem|error|7492525c0796f30e|2c530c1562a7fbd1|610771223||t20112.9310129421s||0|null|local|vector|||14.99||Error running quarto cli.ℹ Rerun with quiet  FALSE to see the full error message.Caused by error System command quarto.exe failed
+file|stem|ba6d6b081f70b6ef|8796d47a9a870f79|2c530c1562a7fbd1|1735323524|data/data forced rep study.csv|t19564.5461506606s|s4088b|4088|file|local|vector|||2.86||
+data|stem|25701558f07b8b88|14c0abc3329ce191|e1eee921734a1904|33550471||t20112.9340984884s|s2128b|2128|rds|local|vector|||0.05||
+individual_data_plot|stem|af5dbedb64df0c50|bd7dd96679d218ec|9b3ac4a995cd4416|-983215082||t20112.9341003319s|s218542b|218542|rds|local|vector|||0.06||
+model_brms|stem|d45a819ca936d845|2e26a852decd863a|695e98d83aaa3bda|636840100||t20112.9495226936s|s169092556b|169092556|rds|local|vector|||1326.6|There were 2 chains where the estimated Bayesian Fraction of Missing Information was low. Seehttpsmcstan.orgmiscwarnings.htmlbfmilow. Examine the pairs plot to diagnose sampling problems|
+individual_data_plot_png|stem|90709a4bf6cd5e22|22f0b028c7102fa3|db49984056288aca|-750618667||t20112.9495491628s|s81b|81|rds|local|vector|||2.2||
+cond_effs_plot|stem|03fd546f677021c3|fb7507ac3dde22f9|5ede5090cf68bc34|1421480357||t20112.9571113388s|s4754783464b|4754783464|rds|local|vector|||17.71||
+trace_plots|stem|a33978df92982f85|4024775991bd3927|c705adf74f311521|-1890721789||t20112.9572811238s|s71797359b|71797359|rds|local|vector|||8.02||
+tidy_model_brms|stem|2fea64af7fecd0c5|c4ef248e4090af69|1b4fa7ceb341aeaa|-1137297126||t20112.9572909471s|s1975b|1975|rds|local|vector|||0.28|some parameter names contain underscores term naming may be unreliable|
+pp_check_plot|stem|92c19a566f9b780e|8011856722b1c798|3e7d9e8cde0fc6b0|1030994877||t20112.9574999047s|s181207b|181207|rds|local|vector|||1.06||
+rhat_plot|stem|bd19d0dd8c7389f3|92b0de6ecc9119a7|eb47032e263d46b2|1810587782||t20112.9576051035s|s169294308b|169294308|rds|local|vector|||3.17||
+cond_effs_plot_png|stem|eec42ce90ac69de5|5c4d5a424fc41ccf|0719e8703d0cc0f3|1099520291||t20112.9612453778s|s75b|75|rds|local|vector|||314.44||
+marg_effs_act_assist_plot|stem|5337d21c4cdba655|67ef93b575dd6c8c|745b84f7cb60c2cc|-362521760||t20112.9636239432s|s203998690b|203998690|rds|local|vector|||4.43||
+marg_effs_rep_plot|stem|2203401819af8db9|43cfaa9400b51922|0b61ef2fe87920b4|803423129||t20112.9638045828s|s202715833b|202715833|rds|local|vector|||3.29||
+marg_effs_role_plot|stem|a1bcaa78bd504169|2ae264e336bd1ece|cc32151c34787031|-1619273451||t20112.9639802941s|s188832599b|188832599|rds|local|vector|||3.86||
+marg_effs_plot_png|stem|78549a8b16f17bc9|10855a5231d8a600|02841d1e1a1dd5a7|-1359198300||t20112.9641400769s|s75b|75|rds|local|vector|||13.71|Removed 49 rows containing missing values or values outside the scale rangestat_slabinterval.. Removed 545 rows containing missing values or values outside the scale rangestat_slabinterval.. Removed 149 rows containing missing values or values outside the scale rangestat_slabinterval.. Removed 413 rows containing missing values or values outside the scale rangestat_slabinterval.. Removed 48 rows containing missing values or values outside the scale rangestat_slabinterval.. Removed 30 rows containing missing values or values outside the scale rangestat_slabinterval.|
+plot_individual_data|function|495b037d8d511aac
+plot_marg_effs_rep|function|c658113e6040527a
+plot_cond_effs|function|83e08805b01ddeb5
+make_individual_data_plot_png|function|1588aff59d7d6885
+make_pp_check|function|f6742e0474333aa8
+plot_model_data|function|485eecf14b617867
+make_rhat_plot|function|a06240c939be0e44
+get_data|function|be6c43235e181794
+fit_brms_model|function|a69b97df86cd0f1b
+make_trace_plots|function|90606bd49d28645f
+get_tidy_model|function|6373e33eee1d6190
+plot_marg_effs_act_assist|function|8cfdb3273a07ef5f
+make_cond_effs_plot_png|function|47d6406236443fac
+plot_marg_effs_role|function|5dbf43d7eb1130b3
+make_marg_effs_plot_png|function|c88ea50485aaf751
+make_model_data_plot_png|function|f40ef9b2b4052807
+model_data_plot|stem|bc30919ad89cc583|a60063cfbf1e8f2c|a99c17e158138f2b|1773144430||t20112.9662202935s|s275735746b|275735746|rds|local|vector|||1.76||
+model_data_plot_png|stem|1b2a8c2ad2e70f06|8d52b9960d3607f4|3a9c69843391d4e9|1874965468||t20112.966370473s|s76b|76|rds|local|vector|||12.83||

@@ -30,11 +30,11 @@ list(
   # Get tidy model summary
   tar_target(tidy_model_brms, get_tidy_model(model_brms)),
   
-  # Render the report
-  tar_quarto(report, "report.qmd"),
-  
-  # Render the supplementary material
-  tar_quarto(diagnostic_plots, "diagnostic_plots.qmd"),
+  # # Render the report
+  # tar_quarto(report, "report.qmd"),
+  # 
+  # # Render the supplementary material
+  # tar_quarto(diagnostic_plots, "diagnostic_plots.qmd"),
   
   # Render plots as png files for submission
   tar_target(individual_data_plot_png, make_individual_data_plot_png(individual_data_plot)),

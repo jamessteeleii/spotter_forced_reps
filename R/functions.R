@@ -75,7 +75,7 @@ make_pp_check <- function(model_brms) {
 
 plot_model_data <- function(model_brms, data) {
   posterior_epred_draws <- crossing(actual_assistance_percentage = seq(from = 0, to = max(data$actual_assistance_percentage), length = max(data$actual_assistance_percentage)),
-                                    id = unique(data$id),
+                                    id = NA,
                                     role = unique(data$role),
                                     forced_rep_no = c(1,2)) %>%
     add_epred_draws(model_brms, re_formula = NA, ndraws = 4000) 

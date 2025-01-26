@@ -1,0 +1,284 @@
+---
+articletitle: |
+  How much help do you need? Perceptions vs. actual effort of trainee and trainer during forced repetitions
+# shorttitle: "Doe et al. (2022)" # usually auto-generated
+format: 
+  sportrxiv-pdf:
+    include-in-header:
+      text: |
+       \usepackage[font=scriptsize]{caption}
+       \usepackage{lscape}
+        \newcommand{\blandscape}{\begin{landscape}}
+        \newcommand{\elandscape}{\end{landscape}}
+author:
+  - name: Jürgen Giessing
+    affiliations:
+      - ref: 1
+  - name: James Steele
+    affiliations:
+      - ref: 2
+      - ref: 3
+    orcid: 0000-0002-8003-0757
+  - name: James Fisher
+    affiliations:
+      - ref: 2
+    email: james.fisher.PhD@outlook.com
+    corresponding: true
+    orcid: 0000-0002-6013-8402
+affiliations:
+      - id: 1
+        name: Institute of Sport Science, University of Kaiserslautern-Landau, Landau, Germany
+      - id: 2
+        name: Department of Sport and Health, Solent University, Southampton, SO14 0YN, UK 
+      - id: 3
+        name: Steele Research Limited, Southampton, UK 
+abstract: |
+  Forced repetitions are an advanced overload training technique theorized to augment potential mechanisms for muscular adaptation. The aim of the present study was to investigate perceptions of assistance by trainers and trainees in comparison to actual assistance for forced repetitions for the bench press exercise. Forty-three (female=9, male=34) trained participants were recruited and randomly assigned roles as both trainer and trainee on testing days and partnered with one another. Participant trainees completed as many repetitions as possible with a 10-12RM and upon reaching the point of momentary failure, a spotter assisted the trainee with only sufficient force to allow two more complete repetitions. Participant trainees provided assistance through use of a digital weight scale attached to the bar to measure the exact force provided. Immediately after the forced repetitions the trainer and trainee were asked independently as to how much (%) assistance was provided for each of the forced repetitions. Inferential statistics were treated as highly unstable local descriptions of the relations between model assumptions and data. For all analyses we opted to avoid dichotomising the existence of effects and therefore did not employ traditional null hypothesis significance testing. Instead, we opted to take an estimation-based approach within a Bayesian framework. For all analyses model parameter estimates and their precision, along with conclusions based upon them, were interpreted continuously and probabilistically, considering data quality, plausibility of effect, and previous literature. Results revealed a large heterogeneity in the perceptions of assistance provided between both trainers and trainees compared to actual assistance provided. However, consistently, trainers and trainees perceived the assistance provided to be greater than the actual level of assistance. This disparity was most evident in the first compared to the second forced repetition. Furthermore, the spotters were better than the trainees in their perception of assistance of load. 
+license-type: ccby # change if neccessary
+# year: 2025 # defaults to current year
+keywords: [forced repetitions, assisted repetitions, bench press, perceived effort] # optional
+# optional link to Supplementary Material:
+suppl-link: https://osf.io/32758/ 
+reference-section-title: References
+printnote: "PREPRINT - NOT PEER REVIEWED" # if post print, include "POSTPRINT" then link to the published article
+bibliography: bibliography.bib  
+pdf-engine: xelatex
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| include: false
+
+targets::tar_config_set(store = here::here('_targets'))
+
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+options(knitr.kable.NA = '')
+
+library(tidyverse)
+library(kableExtra)
+# library(tinytable)
+library(patchwork)
+
+```
+
+# Introduction
+
+Recently academic debate has considered "effort" (i.e., proximity to failure) as one of the most important variables toward stimulating resistance training adaptations of strength and hypertrophy [@grgicEffectsResistanceTraining2022; @fisherIntensityEffortMomentary2022; @refaloInfluenceResistanceTraining2022]. Advanced overload techniques or specialized training methods are often used and cited within the literature as methods which can maximize a stimulus toward optimizing these adaptations [@steeleClarityReportingTerminology2017a]. One such advanced technique is that of forced/assisted repetitions (herein referred to as "forced" repetitions), where upon reaching cessation of a set of exercise (i.e., momentary failure), a trainer or training partner assists the trainee with the concentric phase of the exercise for additional repetitions. It is theorized that this technique can augment motor unit recruitment and fatigue, and enhance metabolic stress [@schoenfeldUseSpecializedTraining2011]. In stimulus, this technique is similar to drop-set resistance training, whereby upon reaching momentary failure the weight is reduced and the exercise continued. However, forced repetitions allow a trainee to continue to perform the eccentric phase of the exercise with the initial weight and thus also benefits the trainee by producing an eccentric overload, which seems efficacious since human muscles are \~40% stronger in eccentric compared to concentric muscle actions [@nuzzoEccentricConcentricStrength2023].
+
+Several studies have considered forced repetitions including acute fatigue and perceptual responses [@fisherAcuteFatiguePerceptual2017], as well as hormonal responses [@ahtiainenAcuteHormonalNeuromuscular2003; @ahtiainenAcuteHormonalResponses2004]. However, for such a commonly utilised technique there is a dearth of empirical training studies. The only intervention study found compared different numbers of forced repetitions across groups rather than in comparison to a control group [@drinkwaterIncreasedNumberForced2007]. A possible reason for the lack of research, and indeed a limiting factor might be the quantification of assistance provided. Studies have typically presented vague details e.g., "Spotters were instructed to provide only a minimum amount of assistance necessary to allow the subject to continue the set." [@drinkwaterIncreasedNumberForced2007], and "... upon reaching momentary failure, the research assistant provided sufficient additional force to the participant to complete the concentric phase only. ... Exercise was terminated when the participant could no longer pause with the load in the isometric phase of the repetition." [@fisherAcuteFatiguePerceptual2017]. Two studies did measure the amount of force provided by the spotter detailing the use of different force plates and handheld dynamometers [@ahtiainenAcuteHormonalNeuromuscular2003; @ahtiainenAcuteHormonalResponses2004]. However, in the former of these studies the authors subtracted the force produced by spotters from the total volume of work (loads x sets x reps) and as such no data for assistance provided is available. In the latter of these studies [@ahtiainenAcuteHormonalResponses2004], the authors reported the averaged force of assistance in the last four reps as 100 ± 10 N (\~10.2kg), 103 ± 10 N (\~10.5kg), 128 ± 12 N (\~13.1kg), and 139 ± 13 N (\~14.2kg), respectively. While relative data reported that load for forced repetition sets were 12% and 30% greater than maximum repetition sets, for strength athletes and non-athletes, respectively, raw data for load lifted was not presented. As such, plot digitizer software (https://apps.automeris.io/wpd/) was used for figure 2 [@ahtiainenAcuteHormonalResponses2004], and values for the first of four sets were estimated as 129.8kg for forced reps vs. 108.3kg for maximum reps for strength athletes, and 86.8kg for forced reps and 65.3kg for maximum reps for non-athletes. However, these data represent a single study with a single exercise (smith machine squat).
+
+Without clarity as to how much assistance is provided and thus, how much additional work is performed by a trainee, we cannot know the efficacy of advanced overload training methods such as forced repetitions. Furthermore, with a growing interest in the efficacy of supervision during resistance training [@fisherRoleSupervisionResistance2022], it would be interesting to better understand perceptions of assistance provided by both trainees and trainers. With the above in mind the aim of the present study was to investigate perceptions of assistance by trainers and trainees in comparison to actual assistance for the bench press exercise.
+
+# Methods
+
+## Study Design
+
+An acute resistance training task was performed in a single session whereby participants completed a single set of smith machine bench press to momentary failure and were then forced for two further repetitions. Trainers and trainees then estimated the percentage of the total weight that was lifted by the spotter. Actual weight lifted by spotter was recorded using a digital weight scale. The study was pre-approved by the Ethics Committee at the first authors institution meeting the ethical standards of the Helsinki declaration and was conducted within the Sport Science Laboratories at University of Kaiserslautern-Landau.
+
+## Participants
+
+A convenience sample of 43 (9 female, 34 male) trained undergraduate students were recruited for the present study (height: 178.4 ±7.5cm; mass: 73.3 ±9.8kg; age: 22.8 ±2.8years; muscle mass: 79.3± 0.1%). Exclusion criteria were based upon illness or any contraindications to physical activity identified using a physical activity readiness questionnaire, though no one was excluded. All participants read a participant information sheet, were afforded the opportunity to ask any questions, and then completed informed consent forms before any testing commenced.
+
+## Procedures
+
+All participants were randomly assigned roles as both trainer and trainee on testing days and partnered with one another. Data collection occurred during scheduled classes at the end of semester and so some attrition for either role occurred based upon whether students missed one of the classes or had an injury. Thus, whilst most participants acted in both the role of spotter and trainee on either testing occasion, not all performed both roles (six participants performed only the spotter role and six participants performed only the trainee role). After a light warm-up, participants identified their typical 10-12RM for the bench press using a smith machine (these had previously been identified through regular training during the academic semester). Participant trainees completed as many repetitions as possible with good form controlling the resistance throughout each repetition. Upon reaching the point of momentary failure, a spotter forced the trainee with only sufficient force to allow two more complete repetitions. Participant trainees provided assistance through use of a digital weight scale (Helcona) attached to the bar to measure the exact maximal force provided. The values on the dynamometer were blinded to the trainer and trainee but were recorded by the research assistant. See @fig-setup for image depicting procedures for data collection. Immediately after the forced repetitions the trainer and trainee were separated and asked independently as to how much (%) assistance was provided for each of the forced repetitions. The research assistant recorded the maximal force on the digital scale for each of the forced repetitions.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-setup 
+#| fig-cap: Image depicting forced repetitions data collection procedure for bench press for data collection.
+
+knitr::include_graphics(here::here("plots/setup.png"))
+
+```
+
+
+## Statistical Analysis
+
+The present analysis was not pre-registered as we had no a priori hypotheses and thus was considered exploratory. Inferential statistics were treated as highly unstable local descriptions of the relations between model assumptions and data in order to acknowledge the inherent uncertainty in drawing generalised inferences from single and small samples [@amrheinInferentialStatisticsDescriptive2019]. For all analyses we opted to avoid dichotomising the existence of effects and therefore did not employ traditional null hypothesis significance testing on parameter estimates [@amrheinScientistsRiseStatistical2019; @mcshaneAbandonStatisticalSignificance2019]. Instead, we opted to take an estimation-based approach instead [@cummingNewStatisticsWhy2014], based within a Bayesian framework [@kruschkeBayesianNewStatistics2018]. For all analyses model parameter estimates and their precision, along with conclusions based upon them, were interpreted continuously and probabilistically, considering data quality, plausibility of effect, and previous literature, all within the context of each model. We focused primarily on qualitative examination of our results based on visualization of the data and models for fixed effects, and exploration of variances using random effects.
+
+All analysis was performed in R (version 4.2.3, The R Foundation for Statistical Computing, 2023) and all data and code is presented in the supplementary materials (https://osf.io/32758/). The dependent variable in our model was the perception of assistance provided which we transformed to the $(0,1)$ interval. As such we used beta regression for our model fit using the `brms` package [@burknerBrmsPackageBayesian2017]. data was handled in long format with each row corresponding to an observation of a participants rating of the perception of assistance being provided. As such, participants had multiple rows of observations i.e., up to two observations (one for each forced repetition) for them as trainee, and up to two observations for them as spotter. Fixed effects for the actual assistance provided by the spotter (as a percentage of the load lifted by the trainee), the role of the participant for this observation (either the trainee or the spotter), the forced repetition number (either the first or the second repetition), and each of their two way interactions (i.e., actual assistance:role, actual assistance:force repetition, role:forced repetition) were included. We also used a maximal random effect structure for the $\mu$ parameters including random intercepts for participant and all of the aforementioned effects including interactions as random slopes. Given the novel study design and subject matter we did not have a clear intuition or informed opinion about what prior to set and so opted to use the default weakly regularising priors and "let the data speak". Four Monte Carlo Markov Chains with 4000 warmup and 4000 sampling iterations were used in each model. All parameters in the model had $\hat{R}$ values $\leq{1.01}$, trace plots demonstrated chain convergence, and the posterior predictive checks appeared appropriate (see https://osf.io/9s6jq). Model results were visualised by taking draws from the expected posterior distribution (n=4000) and taking the mean of these draws along with the 95% quantile (credible) interval for the fixed effects parameters, thus providing the overall grand mean effects for the population. As we were partly interested in exploring the identity of the relationships between actual assistance provided and perception of assistance provided, yet a nonlinear beta regression model was used in which the model parameters are on the latent logit scale and are not directly interpretable, we used the `marginaleffects` package [@arel-bundockMarginaleffectsMarginalEffects2022] and examined posterior draws for the average marginal effects (i.e., the slope) for the overall grand mean effects of fixed effects parameters at different values of actual capacity (0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100%) across forced repetition number and role. We examined the conditional effects by taking draws from the expected posterior distribution incorporating both fixed and random effects and their uncertainty taking the mean of these draws along with all levels of quantile (credible) interval in order to examine the heterogeneity in effects. Lastly, we compared the fixed and random effects estimates for each model term and their ratio to determine if effect heterogeneity was meaningful where a rule of thumb of its standard deviation (random effect) being 0.25 or greater than its average (fixed) effect suggests noteworthy heterogeneity [@bolgerCausalProcessesPsychology2019]. All data visualisations were made using `ggplot2` [@wickhamGgplot2CreateElegant2022], the `tidybayes` package [@kayTidybayesTidyData2022], and the `patchwork` package [@pedersenPatchworkComposerPlots2022]. For interpretation of model estimates and visualisation we rescaled the expected posterior distribution of the $(0,1)$ interval back to the $(0,100)$ percentage scale.
+
+# Results
+
+## Main Effects
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-model-data-plot 
+#| fig-width: 10
+#| fig-height: 5
+#| fig-cap: Global grand means and credible interval estimates from the expectation of the posterior predictive distribution for the relationship of actual assistance provided with perception of assistance provided over both forced repetitions and participant roles. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line.
+
+targets::tar_load(model_data_plot)
+
+model_data_plot
+
+```
+
+The overall grand means from the model for the fixed effects (i.e., without including the random effects) can be seen in @fig-model-data-plot across both the first and second forced repetitions, and for both trainee and spotter roles. The marginal effects for each independent variable are shown in @fig-marg-effs-data-plot. The slopes for actual assistance provided were closer to the identity (i.e., a slope of one meaning that a one unit increase in actual assistance provided was related to a one unit increase perception of assistance provided) over the range in which there were most observations available (\~20-40% actual assistance) in forced repetition one and for both trainee and spotter roles. During repetition two there was a tendency in both trainees and spotters for increases in the actual assistance provided to be perceived as a lesser change in assistance (i.e., slopes less than one; panel (A) of @fig-marg-effs-data-plot). Both trainees and spotters tended to perceive the assistance being provided as greater during the first repetition, and also over lower levels of actual assistance (panel (B) of @fig-marg-effs-data-plot). A slight interaction effect of actual assistance provided upon the slope of repetition number can also be seen in panel (B) of @fig-marg-effs-data-plot (i.e., a reversal of the slope sign suggesting at higher actual assistance repetition two was perceived as receiving less assistance). There was little interaction effects of role (panel (C) of @fig-marg-effs-data-plot), but trainees did tend to perceive the assistance being provided by spotters as being greater than it actually was to a greater degree than spotters themselves, at least over lower levels of actual assistance.
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-marg-effs-data-plot 
+#| fig-width: 10
+#| fig-height: 12.5
+#| fig-cap: Average marginal effect estimates (i.e., slopes) from expectations of the posterior predictive distributions for (A) the relationship actual assistance provided with perception of assistance provided over both forced repetitions and participant roles, (B) the effect of forced repetition number over both actual assistance provided and participant role, and (C) the effect of participant role over actual assistance provided and forced repetition number. For panel (A) the dashed line indicates a slope value of one for actual assistance provided and perception of assistance provided, where a value of one indicates strong identity i.e., a one to one change in the magnitude of perception for a change in the magnitude of actual assistance provided. In both other panels the dashed line indicates a value of zero.
+
+
+targets::tar_load(marg_effs_act_assist_plot)
+targets::tar_load(marg_effs_role_plot)
+targets::tar_load(marg_effs_rep_plot)
+  
+
+(marg_effs_act_assist_plot / marg_effs_rep_plot / marg_effs_role_plot) +
+  plot_annotation(tag_level = "A",
+                  tag_prefix = "(", tag_suffix = ")")
+
+```
+
+## Heterogeneity of effects
+
+Despite these qualitative trends in our modeled results, there was evidently considerable variance in effects between participants. @fig-individual-data-plot shows the individual data for each participant, and @fig-cond-effs-data-plot shows the conditional effects from the expected posterior distribution (i.e., including the fixed and random effects and their uncertainty). With the exception of spotter at low levels of actual assistance provided, the variance in predicted effects covered almost the entire range of the dependent variable (i.e., perception of assistance provided; 0-100%) suggesting all effects to be quite heterogeneous. @tbl-random-effs shows that all model terms, with the exception of the intercept and actual assistance provided, showed noteworthy heterogeneity (i.e., ratio of standard deviation to mean estimate $\leq{0.25}$)
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-individual-data-plot
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: Individual data plot. Each panel shows the raw data for an individual participant.
+
+
+targets::tar_load(individual_data_plot)
+
+individual_data_plot
+
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| label: fig-cond-effs-data-plot
+#| fig-width: 10
+#| fig-height: 10
+#| fig-cap: Conditional estimates plot. The dashed line across the identity is provided to aid with visual interpretation where strong identity would be indicated where model estimates straddle this line, where they fall below the line it would indicate that perception underestimates actual assistance provided, and vice versa where they fall above the line.
+
+targets::tar_load(cond_effs_plot)
+
+cond_effs_plot
+
+```
+
+
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| cache: false
+#| label: tbl-random-effs 
+#| tbl-cap-location: "top"
+#| tbl-cap: Parameter estimates for both fixed and random effects (i.e., standard deviations between participants) on the logit scale.
+
+targets::tar_load(tidy_model_brms)
+
+tidy_model_brms <- tidy_model_brms[1:14,] %>%
+  select(-std.error) %>%
+  mutate(term = str_remove(term,"sd__"))
+
+fixed_effs <- tidy_model_brms[1:7,] %>%
+  select(-effect,-component,-group)
+
+random_effs <- tidy_model_brms[8:14,] %>%
+  rename(SD = "estimate",
+         SD.conf.low = "conf.low",
+         SD.conf.high = "conf.high") %>%
+  select(-effect,-component,-group)
+
+all_effs <- left_join(fixed_effs, random_effs, by = "term") %>%
+  mutate(sd_mean_ratio = SD/estimate) %>%
+  mutate_if(is.numeric, round, 2)
+
+all_effs$term <- recode(all_effs$term,
+                        "(Intercept)" = "Intercept",
+                        "actual_assistance_percentage" = "Actual Assistance Provided",
+                        "roletrainee" = "Role: (Trainee)",
+                        "forced_rep_no" = "Forced Repetition Number",
+                        "actual_assistance_percentage:roletrainee" = "Actual Assistance Provided * Role: (Trainee)",
+                        "actual_assistance_percentage:forced_rep_no" = "Actual Assistance Provided * Forced Repetition Number",
+                        "roletrainee:forced_rep_no" = "Role: (Trainee) * Forced Repetition Number",
+)
+
+
+kbl(
+  all_effs,
+  align = c("l","c","c","c","c","c","c","r"),
+  col.names = c("Model Term",
+                "Estimate",
+                "Lower 95% CI",
+                "Upper 95% CI",
+                "Estimate",
+                "Lower 95% CI",
+                "Upper 95% CI",
+                "SD to Mean Ratio"),
+  booktabs = TRUE
+) %>%
+  footnote(general = c("CI = credible interval", "SD = standard deviation")
+           ) %>%
+  row_spec(0, bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Means" = 3, "Standard Deviations" = 3, "Heterogeneity" = 1)) %>%
+  column_spec(1, width = "2in") |>
+  column_spec(2, border_left = TRUE) %>%
+  column_spec(4, background = "lightgray", border_right = TRUE) %>%
+  column_spec(3, background = "lightgray") %>%
+  column_spec(6, background = "lightgray") %>%
+  column_spec(7, background = "lightgray",border_right = TRUE) %>%
+    kable_paper(full_width = FALSE) %>%
+  kable_styling(latex_options = "scale_down",
+                font_size = 8)
+
+```
+
+# Discussion
+
+The present piece represents the first study to consider perceptions of assistance by trainers and trainees in comparison to actual assistance for the bench press exercise when performing forced repetitions. With a growing body of research considering a trainer's role in strength training (e.g., feedback; [@weakleyShowMeTell2020; @weakleyEffectFeedbackResistance2023], and supervision; [@fisherRoleSupervisionResistance2022]), this is an important area for investigation.
+
+The data presented identifies a number of important findings. As one might expect our analyses reveal a large heterogeneity in the perceptions of assistance provided between both trainers and trainees compared to actual assistance provided. However, consistently, trainers and trainees perceived the assistance provided to be greater than the actual level of assistance. This disparity was most evident in the first compared to the second forced repetition. Furthermore, the spotters were better than the trainees in their perception of assistance of load.
+
+These findings might be a product of a number of variables, for example sensory and nociceptive afferents of fatigue are exaggerated by intensity of effort [@jonesPerceptionForceWeight1986; @hakimMentalFatigueEffects2022]. Thus, while performance of a task might cease because of a trainee's inability to produce sufficient force without a spotter, so their perception of the required effort to overcome the load is amplified. As such, upon reaching failure (or perceived failure) a trainee's perceptions of effort might become more unreliable and so they attribute greater assistance to the spotter than has been received. Indeed, early research reported that perception of effort grows exponentially with regard to force [@banisterPerceptionEffortInductive1979] and has been supported by more recent reviews [@hampsonInfluenceSensoryCues2001]. This might also explain why there was greater accuracy in the perceived assistance compared to actual assistance provided for the 1st compared to the 2nd forced repetition for the spotter. For example, the spotter might have incurred a degree of fatigue from the 1st forced repetition and, in combination with the additionally greater fatigue from the trainee, the spotter must apply increased effort to assist with a 2nd forced repetition. This increased and inconsistent effort between the 1st and 2nd forced repetitions likely causes a greater disparity between perceived- and actual- assistance provided.
+
+# Limitations
+
+We should also acknowledge the potential limitations of this research. As with most studies of this nature, a larger sample size would allow greater accuracy in the conclusions drawn from our analyses. Furthermore, the present study only considers the bench press exercise and so while we have no reason to expect a different trend with different exercises, we can only present assumptions confidently for the given exercise. In addition, while all participants were students who had completed an undergraduate class on resistance training and were confirmed to be engaging in regular and structured resistance training, we did not assess and cannot report more details on participant training history. One might assume that with greater training experience (especially with forced repetitions) as both a trainee and spotter, so perceptions of assistance would improve in accuracy. Finally, and acknowledging the degree of complexity in the practicality of this task, we should recognise that the different vertical displacement of the bar and possible different grip/posture of the spotter might have compounded our data by the use of different muscles at different lengths to a greater or lesser extent when assisting with the forced repetitions. In this sense, we can report only actual and perceived effort for the task rather than for a muscle group.
+
+# Practical Applications
+
+The present study provides useful practical information. Our data demonstrates that the assistance of a spotter to perform forced repetitions can be helpful with a degree of accuracy from the spotter for the 1st forced repetition. However, for subsequent repetitions the perceptions of the amount of assistance provided from both the trainee and the spotter become unreliable. In this sense, while recording details from a workout e.g., load, sets, repetitions, time under load, etc. is useful, recording forced repetitions performed is not accurately quantifiable in load.
+
+# Contributions
+
+Study conception and design, and acquisition of data was by JG. Analysis was conducted by JS. The manuscript was drafted by JF. All authors contributed to interpretation, drafting or revising the article, and all approved the final version.
+
+# Acknowledgements
+
+We would like to thank Mr. Robin Lang for his support and assistance in data collection.
+
+# Funding Information
+
+No funding was received to support this study.
+
+# Data and Supplementary Material Accessibility
+
+All data and analysis code are available on the Open Science Framework project page for this study <https://osf.io/32758/> or on the GitHub repository <https://github.com/jamessteeleii/spotter_forced_reps>.
+
+# References
